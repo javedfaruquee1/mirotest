@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
+  </head>
+  <body>
+    <script>
+      async function init() {
+        await miro.board.ui.openModal({
+          url: "/modal.html",
+          width: 600,
+          height: 500,
+          fullscreen: false,
+        });
+      }
+      init();
+    </script>
+  </body>
+</html>
