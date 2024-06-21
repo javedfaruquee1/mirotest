@@ -13,6 +13,15 @@ miro.onReady(() => {
             }
         }
     });
+
+    // Load the modal HTML and add it to the body
+    fetch('modal.html')
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML('beforeend', data);
+            document.getElementById('openModal').addEventListener('click', showTrainingPopup);
+            document.getElementById('closePopup').addEventListener('click', hideTrainingPopup);
+        });
 });
 
 // Function to show the training popup
@@ -21,8 +30,8 @@ function showTrainingPopup() {
     popup.style.display = 'flex';
 }
 
-// Close popup function
-document.getElementById('closePopup').addEventListener('click', () => {
+// Function to hide the training popup
+function hideTrainingPopup() {
     const popup = document.getElementById('trainingPopup');
     popup.style.display = 'none';
-});
+}
