@@ -9,45 +9,14 @@
       rel="icon"
       href="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
     />
+    <title>My Miro Test App</title>
   </head>
   <body>
-    <script id="variables" src="variables.js"></script>
-    <script>
-      window.userInfo = null;
-      async function callApi(url, method, body, token) {
-        const reqHeaders = {
-          accept: "application/json",
-          "cache-control": "no-cache",
-          pragma: "no-cache",
-          //'authorization': token //Uncomment this line if you are using an authorization token
-        };
-
-        const reqOptions = {
-          method: method,
-          headers: reqHeaders,
-          body: body,
-          mode: "cors",
-        };
-
-        const reqResponse = await fetch(url, reqOptions)
-          .then((res) => {
-            return res["text"]().then((data) => ({
-              status: res.status,
-              body: data,
-            }));
-          })
-          .catch((error) => {
-            return error;
-          });
-
-        return reqResponse;
-      }
-
       async function triggerModal(seconds) {
         if (await miro.board.ui.canOpenModal()) {
           var timeStamp = Date.now();
           await miro.board.ui.openModal({
-            url: `${MODAL_URL}?v=${timeStamp}`,
+            url: `https://mirotest-e0p3g.kinsta.page/modal.html`,
             width: MODAL_WITH,
             height: MODAL_HEIGHT,
             fullscreen: false,
@@ -101,14 +70,6 @@
           }
         } else {
           console.log("No modals currently open - Checking...");
-          const apiUrl = S3_BUCKET_BASE_URL + "/users/" + window.userInfo.id;
-          const query = await callApi(apiUrl, "GET", null);
-          if (query.status === 200) {
-            console.log("Terms Modal has been accepted - Ending actions");
-            return true;
-          } else {
-            triggerModal(seconds);
-          }
         }
       }
 
