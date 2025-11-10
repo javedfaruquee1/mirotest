@@ -1,152 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
-    <style>
-        body {
-            text-align: center;
-            margin-top: 50px;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-        .popup-content {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-        }
-        .popup-content h1, .popup-content h2, .popup-content h3 {
-            color: #333;
-        }
-        .popup-content p, .popup-content a {
-            color: #555;
-        }
-        .popup-content table {
-            width: 100%;
-            margin: 20px 0;
-            border-collapse: collapse;
-        }
-        .popup-content th, .popup-content td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        .popup-content th {
-            background-color: #f2f2f2;
-        }
-        .popup-content a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-        .popup-content a:hover {
-            text-decoration: underline;
-        }
-        .popup-content button {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .popup-content button:hover {
-            background-color: #0056b3;
-        }
-        ul {
-            margin: 0;
-            padding: 0 0 0 20px;
-        }
-    </style>
-  </head>
-  <body>
-      <div class="popup-content">
-        <img style="width: 70%; margin-bottom: 20px;" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Hexagon_AB_Logo_Color.svg" />
-        <h1>Upcoming Miro Training</h1>
-        <p>Dear HIP infos community,</p>
-        <p>We are excited to invite you to a series of 1-hour training sessions on Miro. These sessions will be led by an experienced trainer from Miro, and will cover a range of topics, catering to both beginners and experienced users. This is a great opportunity to enhance your skills and make the most of Miro in our collaborative projects and daily work.</p>
-        <p>Best regards,</p>
-        <h2>Summary of Topics, Dates, and Links to Register:</h2>
-        <table>
-            <tr>
-                <th>Topic</th>
-                <th>Date</th>
-                <th>Link to Register</th>
-            </tr>
-            <tr>
-                <td>Getting Started with Miro - Webinar</td>
-                <td>1st of July 14:00 – 15:00 (CET)</td>
-                <td><a href="https://events.teams.microsoft.com/event/295fb8dd-80ce-4748-8c7e-66d98ca0be56@1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a">Register</a></td>
-            </tr>
-            <tr>
-                <td>Hybrid Meetings in Miro - Webinar</td>
-                <td>1st of July 15:30 – 16:30 (CET)</td>
-                <td><a href="https://events.teams.microsoft.com/event/d6a36915-e67d-4879-82fd-6ff292398a78@1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a">Register</a></td>
-            </tr>
-            <tr>
-                <td>Hosting a Successful Brainstorm in Miro - Webinar</td>
-                <td>16th of September 14:00 – 15:00 (CET)</td>
-                <td><a href="https://events.teams.microsoft.com/event/207eeebd-d8b1-49c0-a499-389f80088643@1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a">Register</a></td>
-            </tr>
-            <tr>
-                <td>Technical Diagramming in Miro - Webinar</td>
-                <td>11th of November 14:00 – 15:00 (CET)</td>
-                <td><a href="https://events.teams.microsoft.com/event/6b51efc8-05a2-431d-beb3-951f1b8c075a@1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a">Register</a></td>
-            </tr>
-        </table>
-        <h2>Detailed Description of the Topics:</h2>
+<head>
+<script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: left;
+    }
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .header img {
+        max-width: 100%;
+        height: auto;
+    }
+    .content {
+        margin-bottom: 30px;
+    }
+    h2 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+    h3 {
+        color: #666;
+        margin-bottom: 20px;
+    }
+    h4 {
+        color: #333;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+    p {
+        margin-bottom: 15px;
+        color: #333;
+    }
+    .highlight {
+        color: #039AAB;
+        font-weight: bold;
+    }
+    .register-link {
+        display: inline-block;
+        background-color: #0097BA;
+        color: white;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+    .register-link:hover {
+        background-color: #007a99;
+    }
+    .close-button {
+        display: block;
+        margin: 30px auto 0;
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .close-button:hover {
+        background-color: #e0e0e0;
+    }
+    ul {
+        margin: 15px 0;
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 8px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://hexagon.com/_next/image?url=https%3A%2F%2Fichs-p-001.sitecorecontenthub.cloud%2Fapi%2Fpublic%2Fcontent%2Fa-s-s-e-t---3-9-4-2-4-39424%3Fv%3Dba59b6e9&w=1920&q=75" alt="Miro Training"/>
+        </div>
         
-        <h3>Getting Started with Miro – Webinar</h3>
-        <p><strong>1st of July 14:00 – 15:00 (CET)</strong></p>
-        <p>A Miro 101 style course, walking through how to get started with Miro including an overview and introduction to our use cases.</p>
-        <p>Users will learn how to:</p>
-        <ul>
-            <li>Navigate Miro seamlessly</li>
-            <li>Create effective, engaging content for your use case</li>
-            <li>Collaborate and connect with your colleagues inside a Miro board</li>
-            <li>Run brainstorms and vote on your favorite ideas</li>
-            <li>Quickly map flows and diagrams</li>
-            <li>Integrate Miro with the tools and platforms you use every day</li>
-        </ul>
-        <p><a href="https://events.teams.microsoft.com/event/295fb8dd-80ce-4748-8c7e-66d98ca0be56@1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a">LINK TO REGISTER</a></p>
+        <div class="content">
+            <h2>1h Miro Training: New Feature - Miro Engage</h2>
+            <h3>Make Every Workshop & Meeting Interactive!</h3>
+            
+            <p>Discover how Miro Engage transforms collaboration with real-time polls, voting, and live results. Attendees can join from their phones or through a shared Miro board to vote, share opinions, and see instant feedback — making every session more engaging and inclusive.</p>
+            
+            <p><b>Date:</b> <span class="highlight">24.11.2025</span></p>
+            <p><b>Time:</b> <span class="highlight">14:00 to 15:00 CET (1 hour)</span></p>
+            <p><b>Location:</b> Webinar</p>
+            
+            <h4>What you'll learn:</h4>
+            <ul>
+                <li>Best practices for hosting and facilitating workshops in Miro</li>
+                <li>How to use Miro Engage, the newest feature that makes collaboration dynamic and fun</li>
+                <li>Live demos of interactive polls, multiple-choice questions, and real-time participation tools</li>
+                <li>A sneak peek into the Miro Engage product roadmap</li>
+            </ul>
+            
+            <h4>Why attend?</h4>
+            <ul>
+                <li>Make every meeting more inclusive and interactive</li>
+                <li>Learn how to capture insights effortlessly</li>
+                <li>Get practical tips you can apply immediately</li>
+            </ul>
+            
+            <p><b>Special Feature:</b> Attendees can join from their phones or through a shared Miro board to vote, share opinions, and see live results — making every interaction more engaging and inclusive.</p>
+            
+            <a href="https://events.teams.microsoft.com/event/7adbd173-5972-46a3-a34a-36c9a7123a54@1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a" class="register-link">👉 Register Now</a>
+        </div>
         
-        <h3>Hybrid Meetings in Miro – Webinar</h3>
-        <p><strong>1st of July 15:30 – 16:30 (CET)</strong></p>
-        <p>In this session we walk you through how to use Miro for inclusive, engaging, and productive hybrid meeting experiences that bridge the room and the screen.</p>
-        <p>Whether you're planning your next kickoff, planning session, pitch, or retro, we're here to help.</p>
-        <p>Users will learn how to:</p>
-        <ul>
-            <li>Leverage features like reactions and stickies to keep engagement and collaboration high in your next meeting</li>
-            <li>Share your board with the right people at the right time to solicit input, feedback, and host instant collaboration moments</li>
-            <li>Design your board for inclusive hybrid experiences, regardless of where your participants are located</li>
-            <li>Use your Miro board for pre-read and action items, to make the most of your precious time</li>
-        </ul>
-        <p><a href="https://events.teams.microsoft.com/event/d6a36915-e67d-4879-82fd-6ff292398a78@1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a">LINK TO REGISTER</a></p>
-        
-        <h3>Hosting a Successful Brainstorm in Miro – Webinar</h3>
-        <p><strong>16th of September 14:00 – 15:00 (CET)</strong></p>
-        <p>In this session we walk you through how to create and facilitate engaging and productive brainstorming sessions. We'll demonstrate in-the-moment techniques that you'll be able to apply right away with your own team.</p>
-        <p>Users will learn how to:</p>
-        <ul>
-            <li>Leverage best practices for creating a welcoming, productive brainstorm</li>
-            <li>Empower your team or group to generate and sort through ideas using Miro tools</li>
-            <li>Use standard and custom templates to encourage great work in your next session</li>
-        </ul>
-        <p><a href="https://events.teams.microsoft.com/event/207eeebd-d8b1-49c0-a499-389f80088643@1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a">LINK TO REGISTER</a></p>
-        
-        <h3>Technical Diagramming in Miro – Webinar</h3>
-        <p><strong>11th of November 14:00 – 15:00 (CET)</strong></p>
-        <p>In this session we'll focus your attention on the most critical features and skills in Miro to empower you. We'll cover new Smart Diagramming features to customize your shape library and make creation more seamless.</p>
-        <p>Users will learn how to:</p>
-        <ul>
-            <li>Use Miro's Smart Diagramming tools and customize them for your use case</li>
-            <li>Leverage Miro as a one-stop tool to support your entire mapping and diagramming workflow - from ideation to delivery</li>
-            <li>Use features that control how stakeholders interact with your map or diagram</li>
-        </ul>
-        <p><a href="https://events.teams.microsoft.com/event/6b51efc8-05a2-431d-beb3-951f1b8c075a@1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a">LINK TO REGISTER</a></p>
+        <button id="close" class="close-button">Close</button>
     </div>
     <script>
       function close() {
